@@ -19,4 +19,6 @@ public class UserController {
         System.out.println(email);
         return "redirect:/";
     }
+
+
 }

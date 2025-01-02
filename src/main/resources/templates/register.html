@@ -11,7 +11,7 @@
   </div>
   <div class="container mt-5" style="width:50%;">
     <h3 class="border-bottom text-center my-3" >회원가입</h3>
-    <form method="post" th:action="@{/register}">
+    <form method="post" th:action="@{/register}" onsubmit="return passCheck()">
       <div class="my-3">
         <label class="form-label" for="userId">아이디</label>
         <input type="text" class="form-control" name="userId" id="userId" required>
@@ -42,8 +42,18 @@
   </div>
 
   </div>
-  <script>
+  <script layout:fragment="script" type="text/javascript">
 
+
+    function passCheck(){
+        let pass1 = document.getElementById("password").value;
+        let pass2 = document.getElementById("password2").value;
+        if(pass1 != pass2){
+          alert("비밀번호를 확인해주세요");
+          return false;
+        }
+        return true;
+    }
   </script>
 </body>
 </html>
